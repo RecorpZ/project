@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const Studmaterials = () => {
   const [materlist, setMaterlist] = useState([]);
   const [reqlist, setReqlist] = useState([]);
+  
   const [loading, setLoading] = useState(true);
   const [del,setDel] = useState("0");
   const navigate = useNavigate()

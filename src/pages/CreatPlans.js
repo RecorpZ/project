@@ -4,13 +4,13 @@ import axios from 'axios';
 export const CreatePlans = ( ) => {
 
     const [materlist, setMaterlist] = useState([]);
-    const [plansm, setPlansm] = useState([]);
     const [plannamelist, setPlanName] = useState([]);
     const [reqlist, setReqlist] = useState([]);
     const [loading, setLoading] = useState(true);
     const [valByIndex, setValByIndex] = useState({});
     const [module1, setM1] = useState([]);
     const [module2, setM2] = useState([]);
+    
     const [module3, setM3] = useState([]);
     const [module4, setM4] = useState([]);
 
@@ -94,17 +94,6 @@ export const CreatePlans = ( ) => {
           }, 0);
           return sum
         }
-
-        function sumOfTeachHours(mas) {
-          const sum = mas.reduce((total, current) => {
-            if (current.hasOwnProperty('TeachHours')) {
-              return total + current.TeachHours;
-            } else {
-              return total;
-            }
-          }, 0);
-          return sum
-        }
         function tooabove(){
           let mmas1 = sumOfCreditCost(module1)
           let mmas2 = sumOfCreditCost(module2)
@@ -127,19 +116,6 @@ export const CreatePlans = ( ) => {
           }
         }
 
-        function sumOfMasCredit(par) {
-          const totalMem = [module1, module2, module3, module4];
-          let sum = 0;
-          totalMem.forEach(array => {
-            array.forEach(obj => {
-              sum += obj.CreditCost;
-            });
-          });
-          if (sum + par.CreditCost > 60){
-            console.log(sum)
-            alert("Внимание, количество кредитов превышает 60 единиц.")
-          }
-        }
 
         function funOfMasCredit() {
           const totalMem = [module1, module2, module3, module4];
@@ -229,6 +205,8 @@ export const CreatePlans = ( ) => {
                                       setM3([...module3,{Id:par.Id,CursName:par.CursName,CreditCost:par.CreditCost/4,CoursDuration:par.CoursDuration,TeachHours:par.TeachHours/4}]);
                                       setM4([...module4,{Id:par.Id,CursName:par.CursName,CreditCost:par.CreditCost/4,CoursDuration:par.CoursDuration,TeachHours:par.TeachHours/4}]);
                                       break;
+                                    default:
+                                      console.log("пусто")
                                   }
                                   }
                                   break;

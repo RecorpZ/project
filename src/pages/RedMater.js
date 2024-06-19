@@ -11,42 +11,57 @@ export const Redactmaterials = ( ) => {
     const [datamaterlist, setDatamaterlist] = useState([]);
     const [storedValue, setStoredValue] = useState();
     const [loading, setLoading] = useState(true);
-    const storedItem = sessionStorage.getItem('myKey');
+    const [loading2, setLoading2] = useState(true);
+    const [loading3, setLoading3] = useState(true);
     const [cursname, setcn] = useState("");
     const [curscost, setcc] = useState('');
     const [cursdur, setcd] = useState('');
     const [curstime, setct] = useState('');
     useEffect(() => {
       async function fetchData() {
+        const storedItem = sessionStorage.getItem('myKey');
         setStoredValue(parseInt(storedItem));
-
         const responseMat = await axios.get('http://localhost:3001/matlist');
         setDatamaterlist(responseMat.data);
         const responseReq = await axios.get('http://localhost:3001/reqlist');
         setrequire(responseReq.data);
-        let fan = require.filter((item) => item.CursId === 27)
+        let fan = require.filter((item) => item.CursId === storedValue)
         setrequire(fan)
         setLoading(false);
+
       }
 
-
       fetchData()
-      axios.post("http://localhost:3001/materiallist")
-        .then((res) => {
-          const a = res.data;
-          a.forEach((entry) => {
-            setMaterlist(prevMaterlist => {
-              return [...prevMaterlist, entry.CursName];
-            });
-          });
-        })
-        .catch(error => console.error('Error:', error));
+
+      async function fetchData2() {
+        let materdata = datamaterlist.filter((item) => item.Id === storedValue)
+        setMaterlist(materdata)
+        setLoading2(false);
+      }
+    fetchData2()
+
+    async function fetchData3() {
+      setcn()
+      setcc()
+      setcd()
+      setct()
+      setLoading3(false);
+      
+    }
+  fetchData3()
+     
     }, []);
     if (loading) {
       return <div>Loading...</div>;
     }
-      const materdata = datamaterlist.filter((item) => item.Id === storedValue)
-
+    if (loading2) {
+      return <div>Loading...</div>;
+    }
+    if (loading3) {
+      return <div>Loading...</div>;
+    }
+      
+console.log(materlist)
       function getname(req){
         let filt = datamaterlist.filter((item) => item.Id === req.ReqId)
         return filt[0].CursName

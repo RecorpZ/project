@@ -27,6 +27,7 @@ export const Creatematerials = ( ) => {
     const cursname = e.target.Cursname.value;
     const curscost = e.target.cost.value;
     const cursdur = e.target.duration.value;
+    
     const curstime = e.target.time.value;
 
     axios.post("http://localhost:3001/crmat",{cursname, curscost,cursdur,curstime})

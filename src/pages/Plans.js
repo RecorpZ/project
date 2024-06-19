@@ -160,9 +160,8 @@ function getRequirementsByCursId(id) {
         }}>Редактировать</button>
         <button onClick={(e) => {
             e.preventDefault()
-            setOpen(true)
-            setOpenId(par.Id)
-            tablefragment(par.Id)
+            let result = plannamelist.filter(a => a !== par)
+              setPlanName(result)
         }}>Удалить</button>   
           </div>
         ))}

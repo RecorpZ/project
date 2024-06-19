@@ -9,6 +9,7 @@ export const Regist = ( ) => {
       const name = e.target.uname.value;
       const nickname = e.target.unickname.value;
       const email = e.target.uemail.value;
+      
       const password = e.target.upassword.value;
       axios.post("http://localhost:3001/regAcc", {name,nickname,email,password})
       .then(res =>{
