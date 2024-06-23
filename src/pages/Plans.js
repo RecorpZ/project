@@ -152,12 +152,12 @@ function getRequirementsByCursId(id) {
             setOpenId(par.Id)
             tablefragment(par.Id)
         }}>Просмотреть</button>
-            <button onClick={(e) => {
+            {/*<button onClick={(e) => {
             e.preventDefault()
             setOpen(true)
             setOpenId(par.Id)
             tablefragment(par.Id)
-        }}>Редактировать</button>
+        }}>Редактировать</button>*/}
         <button onClick={(e) => {
             e.preventDefault()
             let result = plannamelist.filter(a => a !== par)

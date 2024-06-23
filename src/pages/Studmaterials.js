@@ -76,11 +76,11 @@ export const Studmaterials = () => {
                 <h7>Удалить</h7>
               )}
             </button>  
-            <button className = "half-page" onClick={(e) => {
+            {/*<button className = "half-page" onClick={(e) => {
                 redactmat(par)
             }}>
               Редактировать
-            </button>                
+            </button>*/} 
           </div>
         ))}
         </ul>

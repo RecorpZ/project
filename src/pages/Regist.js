@@ -16,10 +16,9 @@ export const Regist = ( ) => {
         if(res.data === "allmail"){
           alert("Аккаунт с этой почтой уже существует") 
         }
-        else{
-          navigate('/login');
-        }
+
       })
+      navigate('/login');
     }
     return (
 
