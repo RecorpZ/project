@@ -18,7 +18,7 @@ export const Regist = ( ) => {
         }
 
       })
-      navigate('/login');
+      navigate('/',{ replace: true });
     }
     return (
 
