@@ -16,7 +16,7 @@ app.use(express.json({limit:'10mb'}))
 let db = new sqlite3.Database("maindatabase.db" , (err) => {
     if (err) {
         console.error(err.message)
-    }w
+    }
     console.log("Connected to the access database")
 })
 console.log('%c 34 23 12 23 ', 'color: #7fcd93');
